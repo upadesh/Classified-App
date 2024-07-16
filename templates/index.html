@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block extra_css %}
+    {# add your custom css here #}
+{% endblock extra_css %}
+
+{% block container %}
+    {% for company in company_data %}
+        <h1><a href="{% url 'view' company.id %}">{{ company.name }}</a></h1>
+        <p>{{ company.description }}</p>
+        <p>{{ company.website }}</p>
+        {% comment %} {% for review in review_data %}        
+            {% if company == review.company %}
+                <p><span class="me-2">Rating: {{ review.rating }}</span><span>Review: {{ review.comment }}</span></p>
+            {% endif %}
+        {% endfor %} {% endcomment %}
+    {% endfor %}
+{% endblock container %}
+
+{% block extra_js %}
+<script>
+    {# add your custom javascript here #}
+</script>
+{% endblock extra_js %}

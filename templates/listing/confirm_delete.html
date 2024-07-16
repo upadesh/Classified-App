@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Delete Confirmation{% endblock title %}
+{% block container %}
+  <div class="container mt-5">
+    <div class="alert alert-danger">
+      <h4 class="alert-heading">Confirm Deletion</h4>
+      <p>Are you sure you want to delete the ad titled "{{ object.title }}"?</p>
+      <hr>
+      <form method="post">
+        {% csrf_token %}
+        <a href="{% url 'company_dashboard' %}" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

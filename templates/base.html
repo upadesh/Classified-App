@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no, minimal-ui, viewport-fit=cover" />
+    <title>
+      {% block title %}
+        Home Page
+      {% endblock %}
+    </title>
+    {% block css %}
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/css/tabler.min.css" />
+    {% endblock %}
+    {% block extra_css %}
+      <style>
+        a:hover {
+          text-decoration: none;
+        }
+      </style>
+    {% endblock %}
+  </head>
+  {% block body %}
+    <body>
+      {% if messages %}
+        <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-container">
+          {% for message in messages %}
+            <div class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-bs-autohide="false" data-bs-toggle="toast">
+              <div class="toast-header">
+                <span class="avatar avatar-xs me-2" style="background-image: url({% static 'images/logo.svg' %})"></span>
+                <strong class="me-auto">Notification</strong>
+                {% comment %} <small>11 mins ago</small> {% endcomment %}
+                <button type="button" class="ms-2 btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">{{ message }}</div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+      <div class="page">
+        {% include 'header.html' %}
+
+        <div class="page-body">
+          <div class="container-xl">
+            {% block container %}
+              <div class="row g-2 align-items-center">
+                <div class="page-wrapper"></div>
+              </div>
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+      {% include 'footer.html' %}
+      {% block js %}
+        <script src="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js"></script>
+      {% endblock %}
+      {% block extra_js %}
+        <script>
+          !(function (e) {
+            'function' == typeof define && define.amd ? define(e) : e()
+          })(function () {
+            'use strict'
+            var e,
+              t = 'tablerTheme',
+              a = new Proxy(new URLSearchParams(window.location.search), {
+                get: function (e, t) {
+                  return e.get(t)
+                }
+              })
+            if (a.theme) localStorage.setItem(t, a.theme), (e = a.theme)
+            else {
+              var n = localStorage.getItem(t)
+              e = n || 'light'
+            }
+            'dark' === e ? document.body.setAttribute('data-bs-theme', e) : document.body.removeAttribute('data-bs-theme')
+          })
+        </script>
+        <script>
+          $(document).ready(function () {
+            $('.toast').toast({ delay: 3000 });
+            $('.toast').toast('show')
+          })
+        </script>
+      {% endblock %}
+    </body>
+  {% endblock %}
+</html>

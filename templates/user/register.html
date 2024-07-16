@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% load static %}
+    {% block title %}
+      User Registration Form
+    {% endblock %}
+    {% block extra_css %}
+      <style>
+        .container-tight {
+          max-width: 50rem;
+        }
+      </style>
+    {% endblock %}
+  {% block body %}
+  <body class="d-flex flex-column">
+    <div class="page page-center">
+      <div class="container container-tight py-4">
+        <div class="text-center mb-4">
+          <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3"><a href="{% url 'home' %}" class="btn btn-red py-1"><img src="{% static 'images/logo.svg' %}" width="32" height="32" alt="Rating and Review" class="navbar-brand-image me-2" />Classified Site</a></h1>
+        </div>
+        <form class="card card-md" method="post" autocomplete="off">
+          {% csrf_token %}
+          <div class="card-body">
+            <h2 class="card-title text-center mb-4">Create User Account</h2>
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label class="form-label" for="id_first_name">First Name</label>
+                  {{ form.first_name }}
+                </div>
+                <div class="col-md-6 form-group">
+                  <label class="form-label" for="id_last_name">Last Name</label>
+                  {{ form.last_name }}
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label class="form-label" for="id_username">Username</label>
+                  {{ form.username }}
+                </div>
+                <div class="col-md-6 form-group">
+                  <label class="form-label" for="id_phone">Phone</label>
+                  {{ form.phone }}
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="id_email">Email</label>
+              {{ form.email }}
+            </div>
+            <div class="mb-3">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label class="form-label" for="id_password1">Password</label>
+                  <div class="input-group input-group-flat">
+                    {{ form.password1 }}
+                    {% comment %} <input type="password" class="form-control" placeholder="Password" autocomplete="off" /> {% endcomment %}
+                    <span class="input-group-text">
+                      <a href="#" class="link-secondary" title="Show password" data-bs-toggle="tooltip">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/eye -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                          <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                        </svg>
+                      </a>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-md-6 form-group">
+                  <label class="form-label" for="id_password2">Confirm Password</label>
+                  <div class="input-group input-group-flat">
+                    {{ form.password2 }}
+                    <span class="input-group-text">
+                      <a href="#" class="link-secondary" title="Show password" data-bs-toggle="tooltip">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/eye -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                          <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                        </svg>
+                      </a>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-check">
+                <input type="checkbox" class="form-check-input" />
+                <span class="form-check-label">Agree the <a href="./terms-of-service.html" tabindex="-1">terms and policy</a>.</span>
+              </label>
+            </div>
+            <div class="form-footer">
+              <button type="submit" class="btn btn-primary w-100">Create new account</button>
+            </div>
+          </div>
+        </form>
+        <div class="text-center text-secondary mt-3">
+          Already have account? <a href="./sign-in.html" tabindex="-1">Sign in</a>
+        </div>
+      </div>
+    </div>
+    {% block js %}
+  <script src="https://cdn.jsdelivr.net/npm/@tabler/core@latest/dist/js/tabler.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var eyeIcon = document.querySelector('.input-group-text a')
+      var passwordField = document.querySelector('#id_password')
+    
+      eyeIcon.addEventListener('click', function (e) {
+        e.preventDefault()
+        if (passwordField.getAttribute('type') === 'password') {
+          passwordField.setAttribute('type', 'text')
+        } else {
+          passwordField.setAttribute('type', 'password')
+        }
+      })
+    })
+  </script>
+  {% endblock %}
+  </body>  
+  {% endblock body %}
+</html>
