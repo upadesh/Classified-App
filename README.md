@@ -1,4 +1,4 @@
-```markdown
+
 # Classified Ads Website
 
 This project is a Django-based classified ads website. Companies can register and post classified ads, while regular users can browse and interact with these ads. 
@@ -29,7 +29,7 @@ This project is a Django-based classified ads website. Companies can register an
 ```bash
 git clone [https://github.com/upadesh/Classified-App.git]
 cd Classified-App
-```
+
 
 ### Create a Virtual Environment
 
