@@ -26,7 +26,7 @@ This project is a Django-based classified ads website. Companies can register an
 ### Clone the Repository
 
 ```bash
-git clone [https://github.com/upadesh/Classified-App.git]
+git clone https://github.com/upadesh/Classified-App.git
 cd Classified-App
 ```
 
