@@ -3,7 +3,8 @@
 {% block container %}
 
   <div class="row row-cards">
-    {% for ad in ads %}
+    THis is homepage
+    {% comment %} {% for ad in ads %}
       <div class="col-md-6">
         <div class="card">
           <div class="card-header">
@@ -18,22 +19,7 @@
                 </div>
               </div>
             </div>
-            {% comment %} <div class="card-actions">
-              <div class="dropdown">
-                <a href="#" class="btn-action dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">                  
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-                    <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-                    <path d="M12 19m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-                    <path d="M12 5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"></path>
-                  </svg>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end" style="">
-                  <a class="dropdown-item" href="{% url 'update_listing' ad.pk %}">Edit Ad</a>                  
-                  <a class="dropdown-item text-danger" href="{% url 'delete_listing' ad.pk %}">Delete Ad</a>
-                </div>
-              </div>
-            </div> {% endcomment %}
+       
           </div>
           <div class="card-body p-0">
             {% if ad.images %}
@@ -47,7 +33,7 @@
           </div>
         </div>
       </div>
-    {% endfor %}
+    {% endfor %} {% endcomment %}
   </div>
 
 
