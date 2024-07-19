@@ -1,4 +1,4 @@
-# Classified Ads Website
+# Classified Ads Website [Under Development]
 
 This project is a Django-based classified ads website. Companies can register and post classified ads, while regular users can browse and interact with these ads. 
 
@@ -10,7 +10,7 @@ This project is a Django-based classified ads website. Companies can register an
 - Displaying classified ads with detailed views
 - Success and error messaging
 - User group-based permissions
-- Modal delete confirmation
+- Modal delete confirmation [Not implemented yet]
 - Toast notifications for success messages
 - Company dashboard for managing ads
 
@@ -81,7 +81,7 @@ Navigate to `http://127.0.0.1:8000/admin` and log in with the superuser credenti
 ### Posting a Classified Ad (Company Users Only)
 
 1. Log in with a company account.
-2. Navigate to `http://127.0.0.1:8000/listing/submit_ads`.
+2. Navigate to `[http://127.0.0.1:8000/listing/create/]`.
 3. Fill out the ad submission form and submit.
 
 ### Updating or Deleting an Ad
